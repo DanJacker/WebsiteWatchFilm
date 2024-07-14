@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Movie Website</title>
+    <!--css-->
+    <link rel="stylesheet" href="css/login.css">
+    <!--swiper css-->
+    <link rel="stylesheet" href="css/swiper.css">
+    <!--fav-icon-->
+    <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
+    <!--box-icon-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!--header-->
+    <header>
+        <!--nav-->
+        <div class="nav container">
+            <!--logo-->
+            <a href="index.html" class="logo">
+                Phim <span>moi</span>
+            </a>
+            <!--search-box-->
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder=" Tim kiem">
+                <i class='bx bx-search'></i>
+            </div>
+            <!--user-->
+            <a href="#" class="user" id="user-icon">
+                <img src="img/nouser.png" alt="" class="user-img">
+            </a>
+            <!--logout-->
+            <a href="#" class="user" id="logout-icon" style="display: none;">
+                <span>Logout</span>
+            </a>
+            <!--nav-bar-->
+            <div class="nav-bar">
+                <a href="#home" class="nav-link nav-active">
+                    <i class='bx bx-home'></i>
+                    <span class="nav-link-title">Trang chu</span>
+                </a>
+                <a href="#popular" class="nav-link">
+                    <i class='bx bxs-hot'></i>
+                    <span class="nav-link-title">Thịnh hành</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class='bx bx-compass'></i>
+                    <span class="nav-link-title">Thể loại</span>
+                </a>
+                <a href="#movies" class="nav-link">
+                    <i class='bx bx-tv'></i>
+                    <span class="nav-link-title">Phim</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class='bx bx-star'></i>
+                    <span class="nav-link-title">Yêu thích</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!--login form-->
+    <div class="form-container" id="form-container">
+        <div class="form-box" id="login-box">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="input-box">
+                    <span class="icon"><i class='bx bx-envelope'></i></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" id="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box" id="register-box" style="display: none;">
+            <h2>Register</h2>
+            <form id="register-form">
+                <div class="input-box">
+                    <span class="icon"><i class='bx bx-user'></i></span>
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bx-envelope'></i></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                    <input type="password" id="register-password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                    <input type="password" id="confirm-password" name="confirmPassword" required>
+                    <label>Confirm Password</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lấy các phần tử từ DOM
+            const userIcon = document.getElementById('user-icon');
+            const formContainer = document.getElementById('form-container');
+            const loginBox = document.getElementById('login-box');
+            const registerBox = document.getElementById('register-box');
+
+            userIcon.addEventListener('click', function () {
+                formContainer.style.display = 'flex';
+                loginBox.style.display = 'block';
+                registerBox.style.display = 'none';
+            });
+
+            document.getElementById('register-link').addEventListener('click', function (e) {
+                e.preventDefault();
+                loginBox.style.display = 'none';
+                registerBox.style.display = 'block';
+            });
+
+            document.getElementById('login-link').addEventListener('click', function (e) {
+                e.preventDefault();
+                loginBox.style.display = 'block';
+                registerBox.style.display = 'none';
+            });
+
+            window.addEventListener('click', function (e) {
+                if (e.target === formContainer) {
+                    formContainer.style.display = 'none';
+                }
+            });
+
+            // Xử lý đăng ký
+            document.getElementById('register-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const password = document.getElementById('register-password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
+                if (password !== confirmPassword) {
+                    alert('Mật khẩu và xác nhận mật khẩu không khớp.');
+                    return;
+                }
+
+                const formData = new FormData(this);
+
+                fetch('register.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+                        console.log(data); // Hiển thị chi tiết dữ liệu phản hồi trong console
+                        if (data.includes('Đăng ký thành công')) {
+                            formContainer.style.display = 'none';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+
+            // Xử lý đăng nhập
+            document.getElementById('login-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+
+                fetch('login.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+                        if (data.includes('Đăng nhập thành công')) {
+                            window.location.href = 'index.html';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+
+    </script>
+</body>
+
+</html>

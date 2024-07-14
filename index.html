@@ -30,34 +30,39 @@
                 <i class='bx bx-search'></i>
             </div>
             <!--user-->
-            <a href="#" class="user">
+            <a href="#" class="user" id="user-icon">
                 <img src="img/user.png" alt="" class="user-img">
             </a>
+            <div class="dropdown" id="dropdown-menu" style="display: none;">
+                <a href="#" id="logout-button">Logout</a>
+            </div>
+
             <!--nav-bar-->
             <div class="nav-bar">
                 <a href="#home" class="nav-link nav-active">
                     <i class='bx bx-home'></i>
-                    <span class="nav-link-title">Trang chu</span>
+                    <span class="nav-link-title">Trang chủ</span>
                 </a>
                 <a href="#popular" class="nav-link">
                     <i class='bx bxs-hot'></i>
-                    <span class="nav-link-title">Trending</span>
+                    <span class="nav-link-title">Thịnh hành</span>
                 </a>
                 <a href="#home" class="nav-link">
                     <i class='bx bx-compass'></i>
-                    <span class="nav-link-title">Explore</span>
+                    <span class="nav-link-title">Thể loại</span>
                 </a>
                 <a href="#movies" class="nav-link">
                     <i class='bx bx-tv'></i>
-                    <span class="nav-link-title">Movie</span>
+                    <span class="nav-link-title">Phim</span>
                 </a>
                 <a href="#home" class="nav-link">
                     <i class='bx bx-star'></i>
-                    <span class="nav-link-title">Favorite</span>
+                    <span class="nav-link-title">Yêu thích</span>
                 </a>
             </div>
         </div>
     </header>
+
     <!--home-->
     <section class="home container" id="home">
         <!--home-img-->
@@ -94,7 +99,7 @@
             <div class="swiper-wrapper">
                 <!--movie-box 1-->
                 <div class="swiper-slide">
-                    <div class="movie-box">
+                    <div class="movie-box" id="movie1">
                         <img src="img/popular-movie-1.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
                             <h2 class="movie-title">Spider-Man: No Way Home</h2>
@@ -106,7 +111,7 @@
                     </div>
                 </div>
                 <!--movie-box 2-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie2">
                     <div class="movie-box">
                         <img src="img/popular-movie-2.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -119,7 +124,7 @@
                     </div>
                 </div>
                 <!--movie-box 3-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie3">
                     <div class="movie-box">
                         <img src="img/popular-movie-3.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -132,7 +137,7 @@
                     </div>
                 </div>
                 <!--movie-box 4-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie4">
                     <div class="movie-box">
                         <img src="img/popular-movie-4.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -145,7 +150,7 @@
                     </div>
                 </div>
                 <!--movie-box 5-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie5">
                     <div class="movie-box">
                         <img src="img/popular-movie-5.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -158,7 +163,7 @@
                     </div>
                 </div>
                 <!--movie-box 6-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie6">
                     <div class="movie-box">
                         <img src="img/popular-movie-6.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -171,7 +176,7 @@
                     </div>
                 </div>
                 <!--movie-box 7-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie7">
                     <div class="movie-box">
                         <img src="img/popular-movie-7.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -184,7 +189,7 @@
                     </div>
                 </div>
                 <!--movie-box 8-->
-                <div class="swiper-slide">
+                <div class="swiper-slide" id="movie8">
                     <div class="movie-box">
                         <img src="img/popular-movie-8.jpg" alt="" class="movie-box-img">
                         <div class="box-text">
@@ -314,6 +319,51 @@
     <script src="js/swiper-bundle.min.js"></script>
     <!--js-->
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('search-input');
+            const movieBoxes = document.querySelectorAll('.movie-box');
+
+            searchInput.addEventListener('input', function () {
+                const filter = searchInput.value.toLowerCase();
+                movieBoxes.forEach(function (box) {
+                    const title = box.querySelector('.movie-title').textContent.toLowerCase();
+                    if (title.includes(filter)) {
+                        box.style.display = '';
+                    } else {
+                        box.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userIcon = document.getElementById('user-icon');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            const logoutButton = document.getElementById('logout-button');
+
+            userIcon.addEventListener('click', function () {
+                if (dropdownMenu.style.display === 'none') {
+                    dropdownMenu.style.display = 'block';
+                } else {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+
+            logoutButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = 'Login.html';
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            window.addEventListener('click', function (e) {
+                if (e.target !== userIcon && !userIcon.contains(e.target) && e.target !== dropdownMenu && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 

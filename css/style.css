@@ -538,6 +538,29 @@ header {
     background: var(--hover-color);
 }
 
+.dropdown {
+    position: absolute;
+    right: 350px;
+    top: 60px;
+    /* Adjust this value based on your layout */
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown a {
+    text-decoration: none;
+    display: block;
+    padding: 2px 6px;
+    color: rgb(255, 255, 255);
+}
+
+.dropdown a:hover {
+    background-color: var(--hover-color);
+}
+
+
 @media (max-width:1170px) {
     .nav-bar {
         bottom: 0;
