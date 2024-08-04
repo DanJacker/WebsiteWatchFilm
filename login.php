@@ -1,5 +1,5 @@
 <?php
-$servername = "fe80::621c:1b27:61ce:d437%14"; // Hoặc địa chỉ IP của MySQL Server
+$servername = "127.0.0.1"; // Thay bằng địa chỉ IP của MySQL Server nếu cần
 $username = "root"; // Tên đăng nhập MySQL Server
 $password = ""; // Mật khẩu MySQL Server
 $dbname = "movie_website"; // Tên cơ sở dữ liệu

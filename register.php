@@ -1,5 +1,5 @@
 <?php
-$servername = "fe80::621c:1b27:61ce:d437%14"; // Hoặc địa chỉ IP của MySQL Server
+$servername = "127.0.0.1"; // Thay bằng địa chỉ IP của MySQL Server nếu cần
 $username = "root"; // Tên đăng nhập MySQL Server
 $password = ""; // Mật khẩu MySQL Server
 $dbname = "movie_website"; // Tên cơ sở dữ liệu
@@ -23,15 +23,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+    // Kiểm tra nếu email đã tồn tại trong cơ sở dữ liệu
+    $emailCheckSql = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($emailCheckSql);
+    if ($result->num_rows > 0) {
+        echo "Email đã được sử dụng.";
+        exit();
+    }
+
+    // Mã hóa mật khẩu
     $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$passwordHashed')";
+    // Chuẩn bị truy vấn
+    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $email, $passwordHashed);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         echo "Đăng ký thành công";
     } else {
-        echo "Lỗi: " . $sql . "<br>" . $conn->error;
+        echo "Lỗi: " . $stmt->error;
     }
+
+    $stmt->close();
 }
 
 $conn->close();
