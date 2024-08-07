@@ -41,19 +41,19 @@
                 </a>
                 <a href="#home" class="nav-link">
                     <i class='bx bxs-hot'></i>
-                    <span class="nav-link-title">Trending</span>
+                    <span class="nav-link-title">Thịnh hành</span>
                 </a>
-                <a href="#home" class="nav-link">
+                <a href="Theloai.html" class="nav-link">
                     <i class='bx bx-compass'></i>
-                    <span class="nav-link-title">Explore</span>
+                    <span class="nav-link-title">Thể loại</span>
                 </a>
                 <a href="#home" class="nav-link">
                     <i class='bx bx-tv'></i>
-                    <span class="nav-link-title">Movie</span>
+                    <span class="nav-link-title">Phim</span>
                 </a>
-                <a href="#home" class="nav-link">
+                <a href="Favorite.html" class="nav-link">
                     <i class='bx bx-star'></i>
-                    <span class="nav-link-title">Favorite</span>
+                    <span class="nav-link-title">Yêu thích</span>
                 </a>
             </div>
         </div>
@@ -128,6 +128,39 @@
 
         </div>
     </div>
+    <!--binh luan-->
+    <div class="comments-section container">
+        <h2>Bình luận</h2>
+        <div class="comment-form">
+            <textarea id="comment-input" placeholder="Viết bình luận của bạn ở đây..."></textarea>
+            <button id="submit-comment">Gửi bình luận</button>
+        </div>
+        <div class="comments-display" id="comments-display">
+            <!-- Bình luận sẽ được thêm vào đây -->
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('submit-comment').addEventListener('click', function () {
+            var commentInput = document.getElementById('comment-input');
+            var commentText = commentInput.value;
+
+            if (commentText.trim() !== "") {
+                var commentDisplay = document.getElementById('comments-display');
+
+                var newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = '<img src="img/user.png" alt="User Avatar" class="comment-avatar"><p>' + commentText + '</p>';
+
+                commentDisplay.appendChild(newComment);
+
+                // Clear the input field after submitting
+                commentInput.value = "";
+            }
+        });
+    </script>
+
     <!--download-->
     <div class="download">
         <h2 class="download-title">Download Movie</h2>
@@ -141,6 +174,7 @@
     <div class="copyright">
         <p>&#169; Nhom 6</p>
     </div>
+
 
     <!--swiper files-->
     <script src="js/swiper-bundle.min.js"></script>

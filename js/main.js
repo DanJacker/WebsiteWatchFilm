@@ -52,3 +52,4 @@ closebtn.onclick = () => {
     myvideo.pause();
     myvideo.currentTime = 0; // Đặt thời gian hiện tại về 0 khi đóng video
 };
+

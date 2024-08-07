@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Movie Websites</title>
+    <!--css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--swiper css-->
+    <link rel="stylesheet" href="css/swiper.css">
+    <!--fav-icon-->
+    <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
+    <!--box-icon-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!--header-->
+    <header>
+        <!--nav-->
+        <div class="nav container">
+            <!--logo-->
+            <a href="index.html" class="logo">
+                Phim <span>moi</span>
+            </a>
+            <!--search-box-->
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder=" Tim kiem">
+                <i class='bx bx-search'></i>
+            </div>
+            <!--user-->
+            <a href="#" class="user" id="user-icon">
+                <img src="img/user.png" alt="" class="user-img">
+            </a>
+            <div class="dropdown" id="dropdown-menu" style="display: none;">
+                <a href="#" id="logout-button">Logout</a>
+            </div>
+
+            <!--nav-bar-->
+            <div class="nav-bar">
+                <a href="index.html" class="nav-link nav-active">
+                    <i class='bx bx-home'></i>
+                    <span class="nav-link-title">Trang chủ</span>
+                </a>
+                <a href="#popular" class="nav-link">
+                    <i class='bx bxs-hot'></i>
+                    <span class="nav-link-title">Thịnh hành</span>
+                </a>
+                <a href="Theloai.html" class="nav-link">
+                    <i class='bx bx-compass'></i>
+                    <span class="nav-link-title">Thể loại</span>
+                </a>
+                <a href="#movies" class="nav-link">
+                    <i class='bx bx-tv'></i>
+                    <span class="nav-link-title">Phim</span>
+                </a>
+                <a href="Favorite.html" class="nav-link">
+                    <i class='bx bx-star'></i>
+                    <span class="nav-link-title">Yêu thích</span>
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+
+<!--swiper files-->
+<script src="js/swiper-bundle.min.js"></script>
+<!--js-->
+<script src="js/main.js"></script>
