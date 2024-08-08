@@ -34,7 +34,7 @@
                 <img src="img/user.png" alt="" class="user-img">
             </a>
             <div class="dropdown" id="dropdown-menu" style="display: none;">
-                <a href="#" id="logout-button">Logout</a>
+                <a href="#" id="logout-button">Đăng Xuất</a>
             </div>
 
             <!--nav-bar-->
@@ -370,17 +370,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const favoriteButtons = document.querySelectorAll('.favorite-btn');
-        
+
             // Load favorites from localStorage
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        
+
             // Mark favorite movies
             favoriteButtons.forEach(button => {
                 const movieId = button.getAttribute('data-id');
                 if (favorites.includes(movieId)) {
                     button.classList.add('favorite');
                 }
-        
+
                 // Add click event to toggle favorite state
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -394,7 +394,7 @@
                 });
             });
         });
-        
+
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
