@@ -118,8 +118,6 @@
         </div>
     </div>
 
-
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Lấy các phần tử từ DOM
@@ -146,11 +144,10 @@
                 registerBox.style.display = 'none';
             });
 
-
-
             // Xử lý đăng ký
             document.getElementById('register-form').addEventListener('submit', function (e) {
                 e.preventDefault();
+
                 const password = document.getElementById('register-password').value;
                 const confirmPassword = document.getElementById('confirm-password').value;
 
@@ -159,31 +156,49 @@
                     return;
                 }
 
-                const formData = new FormData(this);
+                const formData = {
+                    username: document.querySelector('input[name="username"]').value,
+                    email: document.querySelector('input[name="email"]').value,
+                    password: password
+                };
 
-                fetch('register.php', {
+                fetch('http://localhost:3307/register', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData),
+                    mode: 'cors' // Thêm chế độ CORS nếu cần
                 })
-                    .then(response => response.text())
+                    .then(response => response.json())
                     .then(data => {
-                        alert(data);
-                        console.log(data); // Hiển thị chi tiết dữ liệu phản hồi trong console
-                        if (data.includes('Đăng ký thành công')) {
-                            formContainer.style.display = 'none';
+                        alert(data.message);
+                        if (data.message === 'Thêm tài khoản thành công') {
+                            // Hiển thị form đăng nhập
+                            document.getElementById('form-container').style.display = 'flex';
+                            document.getElementById('login-box').style.display = 'block';
+                            document.getElementById('register-box').style.display = 'none';
                         }
                     })
                     .catch(error => console.error('Error:', error));
+
             });
 
             // Xử lý đăng nhập
             document.getElementById('login-form').addEventListener('submit', function (e) {
                 e.preventDefault();
-                const formData = new FormData(this);
 
-                fetch('login.php', {
+                const formData = {
+                    email: document.querySelector('input[name="email"]').value,
+                    password: document.querySelector('input[name="password"]').value
+                };
+
+                fetch('http://localhost:3307/login', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
                 })
                     .then(response => response.text())
                     .then(data => {
@@ -194,8 +209,8 @@
                     })
                     .catch(error => console.error('Error:', error));
             });
-        });
 
+        });
     </script>
 </body>
 

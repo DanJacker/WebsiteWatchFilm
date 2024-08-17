@@ -1,7 +1,5 @@
-const { Timestamp } = require('bson')
-const mongoose = require('mongoose')
-const { type } = require('os')
-const Schema = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     name: {
@@ -16,7 +14,7 @@ const userSchema = new Schema({
     confirmpassword: {
         type: String
     }
-}, { Timestamp: true })
+}, { timestamps: true });
 
-const User = mongoose.model('User ,userSchema')
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User;
