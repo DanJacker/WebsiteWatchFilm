@@ -26,7 +26,7 @@
             </a>
             <!--search-box-->
             <div class="search-box">
-                <input type="search" name="" id="search-input" placeholder=" Tim kiem">
+                <input type="search" name="" id="search-input" placeholder=" Tìm kiếm">
                 <i class='bx bx-search'></i>
             </div>
             <!--user-->
@@ -70,17 +70,32 @@
             <!-- Movie boxes will be appended here by JavaScript -->
         </div>
     </section>
+
     <!--js-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const favoriteContent = document.getElementById('favorite-content');
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            fetch('Favorite.php')
+                .then(response => response.json())
+                .then(data => {
+                    const favoriteContent = document.getElementById('favorite-content');
 
-            favorites.forEach(movieId => {
-                // Find the corresponding movie box from the main page
-                const movieBox = document.querySelector(`#${movieId}`).cloneNode(true);
-                favoriteContent.appendChild(movieBox);
-            });
+                    if (data.status === 'success') {
+                        // Loop through each movie and display it
+                        data.favorites.forEach(movie => {
+                            // Assuming movie has properties id, title, and image (update this according to your movie structure)
+                            const movieBox = document.createElement('div');
+                            movieBox.className = 'movie-box';
+                            movieBox.innerHTML = `
+                                <img src="${movie.image}" alt="${movie.title}">
+                                <i class='bx bx-star'></i>
+                                <div class="movie-title">${movie.title}</div>
+                            `;
+                            favoriteContent.appendChild(movieBox);
+                        });
+                    } else {
+                        favoriteContent.innerHTML = '<p>Bạn chưa có phim yêu thích nào.</p>';
+                    }
+                });
         });
     </script>
 </body>
@@ -89,3 +104,5 @@
 <script src="js/swiper-bundle.min.js"></script>
 <!--js-->
 <script src="js/main.js"></script>
+
+</html>

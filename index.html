@@ -440,6 +440,23 @@
                 }
             });
         });
+
+    </script>
+    <script>
+        function addToFavorites(movieId) {
+            fetch('Favorite.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `movie_id=${movieId}`
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Hiển thị thông báo khi thêm phim vào danh sách yêu thích
+                });
+        }
+
     </script>
 
 </body>
