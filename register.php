@@ -1,13 +1,15 @@
 <?php
+header('Content-Type: application/json; charset=UTF-8');
+
 include 'config.php';
 include 'UserModel.php';
 
 $userModel = new UserModel($conn);
 
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$confirmPassword = $_POST['confirmPassword'];
+$username = $_POST['username'] ?? null;
+$email = $_POST['email'] ?? null;
+$password = $_POST['password'] ?? null;
+$confirmPassword = $_POST['confirmPassword'] ?? null;
 
 // Kiểm tra nếu mật khẩu và xác nhận mật khẩu khớp nhau
 if ($password !== $confirmPassword) {

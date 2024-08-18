@@ -8,8 +8,9 @@ class UserModel {
     }
 
     public function register($username, $email, $password) {
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $stmt = $this->conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $username, $email, password_hash($password, PASSWORD_BCRYPT));
+        $stmt->bind_param("sss", $username, $email, $hashedPassword);
         return $stmt->execute();
     }
 

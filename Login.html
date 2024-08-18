@@ -21,7 +21,7 @@
         <!--nav-->
         <div class="nav container">
             <!--logo-->
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 Phim <span>moi</span>
             </a>
             <!--search-box-->
@@ -30,7 +30,7 @@
                 <i class='bx bx-search'></i>
             </div>
             <!--user-->
-            <a href="#" class="user" id="user-icon">
+            <a href="Login.html" class="user" id="user-icon">
                 <img src="img/nouser.png" alt="" class="user-img">
             </a>
             <!--logout-->
@@ -59,6 +59,7 @@
                     <i class='bx bx-star'></i>
                     <span class="nav-link-title">Yêu thích</span>
                 </a>
+                <a href="logout.php" class="logout-btn">Đăng xuất</a>
             </div>
         </div>
     </header>
@@ -89,7 +90,7 @@
         </div>
         <div class="form-box" id="register-box" style="display: none;">
             <h2>Register</h2>
-            <form id="register-form" action="register.php" method="post">
+            <form id="register-form" method="post">
                 <div class="input-box">
                     <span class="icon"><i class='bx bx-user'></i></span>
                     <input type="text" name="username" required>
@@ -119,30 +120,6 @@
     </div>
 
     <script>
-        document.getElementById('register-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            var formData = new FormData(this);
-
-            fetch('register.php', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        alert(data.message); // Hiển thị thông báo
-                        setTimeout(function () {
-                            document.getElementById('register-box').style.display = 'none';
-                            document.getElementById('login-box').style.display = 'block';
-                        }, 2000); // Chờ 2 giây để người dùng có thời gian đọc thông báo
-                    } else {
-                        alert(data.message);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        });
-
         document.getElementById('login-form').addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -154,15 +131,40 @@
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data); // Thêm log để kiểm tra dữ liệu trả về
                     if (data.status === 'success') {
-                        alert(data.message); // Hiển thị thông báo
-                        window.location.href = 'index.html'; // Chuyển hướng đến trang index.html
+                        alert(data.message);
+                        window.location.href = data.redirect; // Sử dụng URL từ phản hồi để chuyển hướng
                     } else {
                         alert(data.message);
                     }
                 })
                 .catch(error => console.error('Error:', error));
         });
+
+
+        document.getElementById('register-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('register.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.status === 'success') {
+                        // Hiển thị thông báo đăng ký thành công và sau đó chuyển trang sau 2 giây
+                        setTimeout(function () {
+                            window.location.href = 'Login.html'; // Chuyển sang trang login.php
+                        }, 2000); // Chờ 2 giây trước khi chuyển trang
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
 
         document.getElementById('register-link').addEventListener('click', function (e) {
             e.preventDefault();

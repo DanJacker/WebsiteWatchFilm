@@ -16,12 +16,13 @@
 </head>
 
 <body>
+
     <!--header-->
     <header>
         <!--nav-->
         <div class="nav container">
             <!--logo-->
-            <a href="fakeindex.html" class="logo">
+            <a href="index.php" class="logo">
                 Phim <span>moi</span>
             </a>
             <!--search-box-->
@@ -31,28 +32,31 @@
             </div>
             <!--user-->
             <a href="Login.html" class="user" id="user-icon">
-                <img src="img/nouser.png" alt="" class="user-img">
+                <img src="img/user.png" alt="" class="user-img">
             </a>
+            <div class="dropdown" id="dropdown-menu" style="display: none;">
+                <a href="#" id="logout-button">Đăng Xuất</a>
+            </div>
 
             <!--nav-bar-->
             <div class="nav-bar">
-                <a href="Login.html" class="nav-link nav-active">
+                <a href="#home" class="nav-link nav-active">
                     <i class='bx bx-home'></i>
                     <span class="nav-link-title">Trang chủ</span>
                 </a>
-                <a href="Login.html" class="nav-link">
+                <a href="#popular" class="nav-link">
                     <i class='bx bxs-hot'></i>
                     <span class="nav-link-title">Thịnh hành</span>
                 </a>
-                <a href="Login.html" class="nav-link">
+                <a href="Theloai.html" class="nav-link">
                     <i class='bx bx-compass'></i>
                     <span class="nav-link-title">Thể loại</span>
                 </a>
-                <a href="Login.html" class="nav-link">
+                <a href="#movies" class="nav-link">
                     <i class='bx bx-tv'></i>
                     <span class="nav-link-title">Phim</span>
                 </a>
-                <a href="Login.html" class="nav-link">
+                <a href="Favorite_view.php" class="nav-link">
                     <i class='bx bx-star'></i>
                     <span class="nav-link-title">Yêu thích</span>
                 </a>
@@ -69,7 +73,7 @@
         <div class="home-text">
             <h1 class="home-title">Hitman 's Wife 's <br> Bodyguard </h1>
             <p>Releasing 10 April</p>
-            <a href="Login.html" class="watch-btn">
+            <a href="#" class="watch-btn">
                 <i class='bx bx-right-arrow'></i>
                 <span>Watch the trailer</span>
             </a>
@@ -102,10 +106,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">Spider-Man: No Way Home</h2>
                             <span class="movie-type">Action</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie1">
+                            <a href="#" class="favorite-btn" data-id="movie1">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -118,10 +122,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">Jungle Cruise</h2>
                             <span class="movie-type">Action/Adventure</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie2">
+                            <a href="#" class="favorite-btn" data-id="movie2">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -134,10 +138,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">Loki</h2>
                             <span class="movie-type">Action</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie3">
+                            <a href="#" class="favorite-btn" data-id="movie3">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -150,10 +154,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">Squid Game</h2>
                             <span class="movie-type">Action/Horror/Drama</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie4">
+                            <a href="#" class="favorite-btn" data-id="movie4">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -166,10 +170,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">The Falcon and The Winter Sodier</h2>
                             <span class="movie-type">Action</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie5">
+                            <a href="#" class="favorite-btn" data-id="movie5">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -182,10 +186,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">Haweye</h2>
                             <span class="movie-type">Action</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie6">
+                            <a href="#" class="favorite-btn" data-id="movie6">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -198,10 +202,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">Agents of S.H.E.I.L.D.</h2>
                             <span class="movie-type">Action</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie7">
+                            <a href="#" class="favorite-btn" data-id="movie7">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -214,10 +218,10 @@
                         <div class="box-text">
                             <h2 class="movie-title">The Flash</h2>
                             <span class="movie-type">Action</span>
-                            <a href="Login.html" class="watch-btn play-btn">
+                            <a href="#" class="watch-btn play-btn">
                                 <i class='bx bx-right-arrow'></i>
                             </a>
-                            <a href="Login.html" class="favorite-btn" data-id="movie8">
+                            <a href="#" class="favorite-btn" data-id="movie8">
                                 <i class='bx bxs-star'></i>
                             </a>
                         </div>
@@ -237,119 +241,20 @@
         </div>
         <!--movies content-->
         <div class="movies-content">
-            <!--movies box1-->
+            <?php include 'movies.php'; ?>
             <div class="movie-box">
                 <img src="img/movie-1.jpg" alt="" class="movie-box-img">
                 <div class="box-text">
-                    <h2 class="movie-title">Jumanji: Welcome to the Jungle</h2>
+                    <h2 class="movie-title">Example Movie</h2>
                     <span class="movie-type">Action/Comedy</span>
-                    <a href="Login.html" class="watch-btn play-btn">
+                    <a href="play-page.html" class="watch-btn play-btn">
                         <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie9">
-                        <i class='bx bxs-star'></i>
                     </a>
                 </div>
             </div>
-            <!--movies box2-->
-            <div class="movie-box">
-                <img src="img/movie-2.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">Hitman's Wife 's Bodyguard</h2>
-                    <span class="movie-type">Action</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie10">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
-            <!--movies box3-->
-            <div class="movie-box">
-                <img src="img/movie-3.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">Shang-chi</h2>
-                    <span class="movie-type">Action/Comedy</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie11">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
-            <!--movies box4-->
-            <div class="movie-box">
-                <img src="img/movie-4.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">Eternals</h2>
-                    <span class="movie-type">Action</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie12">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
-            <!--movies box5-->
-            <div class="movie-box">
-                <img src="img/movie-5.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">Spectre</h2>
-                    <span class="movie-type">Action</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie13">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
-            <!--movies box6-->
-            <div class="movie-box">
-                <img src="img/movie-6.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">Money heist</h2>
-                    <span class="movie-type">Action</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie14">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
-            <!--movies box7-->
-            <div class="movie-box">
-                <img src="img/movie-7.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">The Wolverine</h2>
-                    <span class="movie-type">Action</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie15">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
-            <!--movies box8-->
-            <div class="movie-box">
-                <img src="img/movie-8.jpg" alt="" class="movie-box-img">
-                <div class="box-text">
-                    <h2 class="movie-title">Johnny English</h2>
-                    <span class="movie-type">Action</span>
-                    <a href="Login.html" class="watch-btn play-btn">
-                        <i class='bx bx-right-arrow'></i>
-                    </a>
-                    <a href="Login.html" class="favorite-btn" data-id="movie16">
-                        <i class='bx bxs-star'></i>
-                    </a>
-                </div>
-            </div>
+            <!-- Repeat for other movies -->
         </div>
+
     </section>
     <!--movie-end-->
     <!--Next page-->
@@ -362,7 +267,48 @@
     </div>
 
     <!--swiper js-->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!--js-->
+    <script src="js/main.js"></script>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const favoriteButtons = document.querySelectorAll('.favorite-btn');
+
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const movieId = this.getAttribute('data-id');
+
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            fetch('check_login.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.loggedIn) {
+                        // Nếu đã đăng nhập, gửi yêu cầu thêm bộ phim vào danh sách yêu thích
+                        fetch('add_favorite.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `movie_id=${movieId}`
+                        })
+                        .then(response => response.text())
+                        .then(result => {
+                            alert(result);
+                        });
+                    } else {
+                        // Nếu chưa đăng nhập, thông báo và chuyển hướng đến trang đăng nhập
+                        alert('Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm vào danh sách yêu thích.');
+                        window.location.href = 'login.html';
+                    }
+                });
+        });
+    });
+});
+
+</script>
 
 </body>
 <!--swiper files-->

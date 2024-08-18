@@ -19,6 +19,7 @@ if ($user) {
     
     $response['status'] = 'success';
     $response['message'] = 'Đăng nhập thành công.';
+    $response['redirect'] = 'index.php'; // Thêm URL để chuyển hướng
 } else {
     $response['status'] = 'error';
     $response['message'] = 'Email hoặc mật khẩu không đúng.';
